@@ -1,8 +1,8 @@
-import {  Text, FlatList, View } from "react-native";
+import {  Text, FlatList, View, Button } from "react-native";
 import {useEffect, useState} from 'react'
 import axios from "axios";
 
-export function ListaUsuarios() {
+export function ListaUsuarios({navigation}) {
 
     const [ users, setUsers] = useState([])
 
@@ -17,8 +17,13 @@ export function ListaUsuarios() {
       
     }, [])
 
+    function redirectToNewUser(){
+        navigation.navigate("NovoUsuario")
+    }
+
     return (
         <>
+            <Button title="Novo usuario" onPress={redirectToNewUser} />
            <FlatList 
             data={users}
             renderItem={({item}) => (
