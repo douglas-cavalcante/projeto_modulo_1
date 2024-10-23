@@ -3,7 +3,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useState } from "react";
 import axios from "axios";
 
-export default function NovoUsuario() {
+export default function NovoUsuario({navigation}) {
 
     const [profile, setProfile] = useState('motorista')
     const [document, setDocument] = useState('')
@@ -24,7 +24,7 @@ export default function NovoUsuario() {
 
         axios.post(process.env.EXPO_PUBLIC_API_URL + '/register', {
             profile: profile,
-            name: 'Henrique Douglas',
+            name: 'Farmacia',
             document: document,
             full_address: "Rua x, bairro y",
             email: email,
@@ -32,7 +32,7 @@ export default function NovoUsuario() {
         })
          .then(() => {
             console.log("DEU CERTO")
-            
+            navigation.navigate("ListaUsuarios")
          })
          .catch(() => {
 

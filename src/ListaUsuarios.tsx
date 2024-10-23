@@ -1,21 +1,21 @@
 import {  Text, FlatList, View, Button } from "react-native";
 import {useEffect, useState} from 'react'
 import axios from "axios";
+import { useFocusEffect } from "@react-navigation/native";
 
 export function ListaUsuarios({navigation}) {
 
     const [ users, setUsers] = useState([])
 
-    useEffect(() => {
+    useFocusEffect(() => {
         axios.get('http://192.168.0.37:3000/users')
         .then((response) => {
             setUsers(response.data)
         })
         .catch(() => {
             console.log("deu ruim")
-        })
-      
-    }, [])
+        }) 
+    })
 
     function redirectToNewUser(){
         navigation.navigate("NovoUsuario")
