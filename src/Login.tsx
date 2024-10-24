@@ -33,7 +33,7 @@ export default function Login({navigation}) {
 
     function handleLogin() {
 
-        console.log("entrei na login")
+        console.log("entrei na login ")
 
         axios.post(process.env.EXPO_PUBLIC_API_URL + '/login', {
             email: 'admin@gmail.com',
