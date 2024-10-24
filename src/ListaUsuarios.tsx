@@ -13,7 +13,7 @@ export function ListaUsuarios({navigation}) {
             setUsers(response.data)
         })
         .catch(() => {
-            console.log("deu ruim")
+            console.log("deu ruim ")
         }) 
     })
 
